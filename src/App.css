@@ -1,0 +1,123 @@
+.App {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+header {
+  height: 10vh;
+  padding: 2vh 25vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  width: auto;
+  height: 8vh;
+}
+
+header nav {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav a {
+  color: #495e57;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+header nav a:hover{
+  text-decoration: underline;
+}
+
+main {
+  height: 70vh;
+  padding: 2vh 25vw;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #495e57;
+  color: white;
+}
+
+main img {
+  height: 50vh;
+  width: auto;
+  border-radius: 2rem;
+}
+
+h2 {
+  color: #f4ce14;
+  font-size: 30pt;
+}
+
+h3 {
+  font-size: 20pt;
+}
+
+main p {
+  font-size: 16pt;
+  max-width: 70%;
+}
+
+.button {
+  background-color: #f4ce14;
+  color: black;
+  margin-top: 1em;
+  padding: 2vh 4vw;
+  border: none;
+  border-radius: 30px;
+  font-size: 16pt;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  height: 20vh;
+  padding: 2vh 25vw;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer img {
+  height: 5em;
+}
+
+footer p {
+  font-size: 1em;
+  font-weight: 500;
+  color: #495e57;
+}
+
+.footer-nav {
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.footer-nav-list p{
+  font-size: 0.8em;
+  font-weight: 400;
+  margin: 3px 0px !important;  
+  color: #495e57;
+}
+
+form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+}
