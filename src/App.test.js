@@ -8,13 +8,13 @@ test('Renders the Header heading', () => {
       <App />
     </BrowserRouter>
   )
-  const headingElement = screen.getByText('Reserve Table')
+  const headingElement = screen.getByText('Reserve a Table')
   expect(headingElement).toBeInTheDocument()
 
   const reserveButton = screen.getByRole('button')
   fireEvent.click(reserveButton)
 
-  const headingElementNew = screen.getByText('Choose Date')
+  const headingElementNew = screen.getByText('Choose a Date*')
   expect(headingElementNew).toBeInTheDocument()
 })
 
