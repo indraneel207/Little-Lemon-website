@@ -1,5 +1,5 @@
 .App {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif !important;
   text-align: center;
 }
 
@@ -50,8 +50,9 @@ main {
 }
 
 main img {
-  height: 50vh;
-  width: auto;
+  height: auto;
+  width: 35em;
+  margin-left: 1em;
   border-radius: 2rem;
 }
 
@@ -120,4 +121,28 @@ form {
   display: grid;
   max-width: 200px;
   gap: 20px;
+}
+
+.form-sub-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1em 0em;
+}
+
+label {
+  font-size: medium;
+  font-weight: 500;
+  width: 15vw;
+}
+
+input, select {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  width: 15vw;
+  background-color: transparent;
+  border: none;
+  margin-top: 1em;
+  border-bottom: 3px solid #f4ce14;
 }
