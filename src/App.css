@@ -18,7 +18,7 @@ header img {
 }
 
 header nav {
-  width: 60%;
+  width: 65%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,7 +33,9 @@ header nav a {
 }
 
 header nav a:hover{
-  text-decoration: underline;
+  font-weight: 500;
+  font-size: 1.4em;
+  color: #f4ce14;
 }
 
 main {
@@ -51,7 +53,7 @@ main {
 
 main img {
   height: auto;
-  width: 35em;
+  width: 25vw;
   margin-left: 1em;
   border-radius: 2rem;
 }
@@ -80,6 +82,8 @@ main p {
   font-size: 16pt;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
+  width: auto !important;
 }
 
 footer {

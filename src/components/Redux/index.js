@@ -13,12 +13,27 @@ const fetchAPI = () => {
 
 export const Context = createContext()
 
-const initialState = { availableTimes: fetchAPI() }
+const defaultBookingInfo = {
+  date: '',
+  guests: 0,
+  time: 0,
+  occasion: ''
+}
+
+const initialState = {
+  availableTimes: fetchAPI(),
+  bookingInfo: defaultBookingInfo
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_TIME':
       return { ...state, availableTimes: fetchAPI(new Date(action.payload.date)) }
+    case 'BOOK_TABLE':
+      console.log("here")
+      return { ...state, bookingInfo: action.payload.bookingInfo }
+    case 'RESET_BOOKING':
+      return { ...state, bookingInfo: defaultBookingInfo }
     default:
       return state
   }

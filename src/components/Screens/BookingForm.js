@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Context } from '../Redux'
@@ -8,29 +8,42 @@ const BookingForm = (props) => {
   const { state, dispatch } = useContext(Context)
   const navigate = useNavigate()
 
-  const [occasion, setOccasion] = useState('')
-  const [guests, setGuests] = useState('')
-  const [date, setDate] = useState('')
-  const [times, setTimes] = useState('')
+  const [occasion, setOccasion] = useState(state.bookingInfo.occasion)
+  const [guests, setGuests] = useState(state.bookingInfo.guests)
+  const [date, setDate] = useState(state.bookingInfo.time)
+  const [times, setTimes] = useState(state.bookingInfo.date)
 
   const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch({
+      type: 'BOOK_TABLE',
+      payload: {
+        bookingInfo: {
+          date,
+          guests,
+          time: times,
+          occasion
+        }
+      }
+    })
     navigate('/confirmed')
   }
 
-  const handleChange = (e) => {
-    setDate(e)
-    props.dispatch(e)
-  }
+  useEffect(() => {
+    dispatch({
+      type: 'RESET_BOOKING'
+    })
+  }, [dispatch])
 
   return (
     <main>
-      <div className='main-left-side'>
+      <form className='main-left-side' onSubmit={handleSubmit}>
         <div className='form-sub-container'>
-          <label htmlFor='book-date'>Choose a Date</label>
-          <input id='book-date' value={date} onChange={(e) => handleChange(e.target.value)} type='date' required />
+          <label htmlFor='book-date'>Choose a Date*</label>
+          <input id='book-date' value={date} onChange={(e) => setDate(e.target.value)} type='date' required />
         </div>
         <div className='form-sub-container'>
-          <label htmlFor='book-time'>Choose Time</label>
+          <label htmlFor='book-time'>Choose Time*</label>
           <select id='book-time' value={times} onChange={(e) => setTimes(e.target.value)} required>
             <option value=''>Select a Time</option>
             {state.availableTimes.map((availableTimes) => (
@@ -39,7 +52,7 @@ const BookingForm = (props) => {
           </select>
         </div>
         <div className='form-sub-container'>
-          <label htmlFor='book-guests'>Number of Guests</label>
+          <label htmlFor='book-guests'>Number of Guests*</label>
           <input
             id='book-guests'
             min='1'
@@ -54,7 +67,7 @@ const BookingForm = (props) => {
           ></input>
         </div>
         <div className='form-sub-container'>
-          <label htmlFor='book-occasion'>Occasion</label>
+          <label htmlFor='book-occasion'>Occasion*</label>
           <select
             id='book-occasion'
             key={occasion}
@@ -67,10 +80,8 @@ const BookingForm = (props) => {
             <option>Anniversary</option>
           </select>
         </div>
-        <button className='button' onClick={handleSubmit}>
-          Make Reservation
-        </button>
-      </div>
+        <input type='submit' value='Make Reservation' className='button' />
+      </form>
       <img className='main-right-side' src={Table} alt='Table' />
     </main>
   )
