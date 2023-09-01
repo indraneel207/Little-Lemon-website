@@ -64,7 +64,7 @@ const BookingForm = (props) => {
             placeholder='Enter the Number of Guests'
             max={10}
             required
-          ></input>
+          />
         </div>
         <div className='form-sub-container'>
           <label htmlFor='book-occasion'>Occasion*</label>
