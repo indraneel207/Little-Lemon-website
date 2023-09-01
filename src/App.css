@@ -150,3 +150,19 @@ input, select {
   margin-top: 1em;
   border-bottom: 3px solid #f4ce14;
 }
+
+@media all and (min-width: 1024px) and (max-width: 1280px) { }
+ 
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+ 
+@media all and (min-width: 480px) and (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+ }
+ 
+@media all and (max-width: 480px) { 
+  header nav {
+    display: none;
+  }
+}
